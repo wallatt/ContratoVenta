@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>VentaEntradas</title>	
+   <link rel="stylesheet" type ="text/css" href="main.css">
+  
+
+</head>
+<body><h1>VentaEntradas</h1>
+	<aside><p>
+		En este contrato ya creado, el evento se fijó como "Concierto Metallica", número de entradas 300 y el precio de 1500 wei.
+		Todos los montos son en wei. Las direcciones y números se escriben sin comillas. Los dni se escriben sin puntos.
+		El dni se utiliza como contraseña en algunos casos, como ver el balance. El contrato comparará si el dni pertenece a la cuenta(metamask) que llamó el método. 
+        No es necesario que sean DNIs reales, se puede utilizar por ejemplo '1234'. El dni solo se registrará con los métodos para Realizar Compra o Cargar Fondos, y luego no se podrá cambiar.
+        DNI: 0,111,222 se encuentran reservados. 		
+	</p>
+	</aside>
+	<div>
+    <div class="container1">
+		
+	<h3 id="evento"></h2>
+        <label for="name" class="col-lg-2 control-label">Evento</label>
+        
+		<button id="button">Conocer Evento</button>
+	</div>
+	<div class="container1">
+		
+	<h3 id="entrada"></h3>
+        <label for="name" class="col-lg-2 control-label">Entradas totales</label>
+        
+		<button id="abuttons">Conocer Entradas</button>
+	</div>
+	<div class="container1">
+	<h3 id="precio"></h3>
+        <label for="name" class="col-lg-2 control-label">Precio Entrada</label>
+        
+		<button id="button2">Precio</button>
+	</div>
+	<div class="container1">
+
+	<h3 id="disponibles"></h3>
+        <label for="name" class="col-lg-2 control-label">Entradas disponibles</label>
+        
+		<button id="button3">Entradas disponibles</button>
+	</div>
+	<div class="container1">	
+	<h3 id="owner"></h3>
+        <label for="name" class="col-lg-2 control-label">Direccion dueño</label>
+        
+		<button id="button4">Direccion</button>
+	</div>
+	<div class="container1">	
+	<h3 id="balance"></h3>
+        <label for="name" class="col-lg-2 control-label">Balance: ingrese dni</label>
+		<input id="dniBalance" type="text">
+		
+		<button id="button5">Balance Cuenta</button>
+	</div>
+	<div class="container1">	
+	<h3 id="entradas"></h3>
+        <label for="name" class="col-lg-2 control-label">Entradas que posee: ingrese dni</label>
+		<input id="dniEntradas" type="text">
+		
+		<button id="button6">Actualizar entradas</button>
+	</div>
+	<div class="container1">	
+	<h3 id="comprar"></h3>
+        <label for="name" class="col-lg-2 control-label">DNI</label>
+		<input id="dniCompra" type="text">
+
+		<label for="name" class="col-lg-2 control-label">Monto. Puede ingresar aquí, o se debitará si ya cargó cuenta en el sistema</label>
+		<input id="montoCompra" type="text">
+		
+		<button id="button7">Realizar compra</button>
+	</div>
+	<div class="container1">	
+	<h3 id="cargarFondos"></h3>
+        <label for="name" class="col-lg-2 control-label">DNI</label>
+		<input id="dniCarga" type="text">
+
+		<label for="name" class="col-lg-2 control-label">Monto</label>
+		<input id="montoCarga" type="text">
+		
+		<button id="button8">Realizar carga</button>
+	</div>
+	<div class="container1">	
+	<h3 id="retirarFondos"></h3>
+        <label for="name" class="col-lg-2 control-label">DNI</label>
+		<input id="dniRetiro" type="text">
+
+		<label for="name" class="col-lg-2 control-label">Cantidad a retirar</label>
+		<input id="montoRetiro" type="text">
+		
+        <button id="button9">Retirar fondos</button>
+	</div>
+	<div class="container1">
+	<h3 id="setVenta"></h3>
+        <label for="name" class="col-lg-2 control-label">DNI</label>
+		<input id="dniVenta" type="text">
+
+		<label for="name" class="col-lg-2 control-label">Precio que desee vender su entrada, si ya no desea vender ingrese '0'</label>
+		<input id="precioReventa" type="text">
+		
+		<button id="button10">Set Precio para reventa</button>
+	</div>
+	<div class="container1">	
+	<h3 id="precioVendedor"></h3>
+        <label for="name" class="col-lg-2 control-label">direccion a quien desea comprar entrada</label>
+		<input id="direccionVendedor" type="text">
+		
+		<button id="button11">Obtener Precio</button>
+	</div>
+	<div class="container1">
+	<h3 id="comprarReventa"></h3>
+		<label for="name" class="col-lg-2 control-label">Direccion del vendedor</label>
+		<input id="direcVende" type="text">
+		
+        <label for="name" class="col-lg-2 control-label">DNI</label>
+		<input id="dniRecompra" type="text">
+
+		<label for="name" class="col-lg-2 control-label">Monto. Puede ingresar aquí, o se debitará si ya cargó cuenta en el sistema</label>
+		<input id="montoRecompra" type="text">
+		
+		<button id="button12">Realizar compra</button>
+	</div>
+	<div class="container1">
+	<h3 id="cancelar"></h3>
+        <label for="name" class="col-lg-2 control-label">direccion de reservas a cancelar. solo utilizable por el dueño del evento</label>
+		<input id="direccionCancelar" type="text">
+		
+		<button id="button13">Remover cliente</button>
+
+	</div>
+	
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+
+    
+
+<script>
+
+
+
+
+window.addEventListener('load', async () => {
+    // Modern dapp browsers...
+    if (window.ethereum) {
+        window.web3 = new Web3(ethereum);
+        try {
+            
+            await ethereum.enable();
+            
+        } catch (error) {}
+    }
+    else if (window.web3) {		
+        window.web3 = new Web3(web3.currentProvider);
+    }
+
+    else {		
+		
+		web3.setProvider(new web3.providers.HttpProvider('http://127.0.0.1:8545'));
+		      
+    }
+});
+
+
+    let Venta = web3.eth.contract([
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "entradas",
+		"outputs": [
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [
+			{
+				"name": "dni",
+				"type": "uint256"
+			}
+		],
+		"name": "getBalance",
+		"outputs": [
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "evento",
+		"outputs": [
+			{
+				"name": "",
+				"type": "string"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "dni",
+				"type": "uint256"
+			},
+			{
+				"name": "total",
+				"type": "uint256"
+			}
+		],
+		"name": "retirarFondos",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "dni",
+				"type": "uint256"
+			},
+			{
+				"name": "costo",
+				"type": "uint256"
+			}
+		],
+		"name": "setVenta",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [
+			{
+				"name": "_adr",
+				"type": "address"
+			}
+		],
+		"name": "getPrecio",
+		"outputs": [
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "precioBase",
+		"outputs": [
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "dni",
+				"type": "uint256"
+			}
+		],
+		"name": "compra",
+		"outputs": [],
+		"payable": true,
+		"stateMutability": "payable",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "_vendedor",
+				"type": "address"
+			},
+			{
+				"name": "dni",
+				"type": "uint256"
+			}
+		],
+		"name": "compraReventa",
+		"outputs": [],
+		"payable": true,
+		"stateMutability": "payable",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "owner",
+		"outputs": [
+			{
+				"name": "",
+				"type": "address"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "adr",
+				"type": "address"
+			}
+		],
+		"name": "cancelarReservas",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [
+			{
+				"name": "dni",
+				"type": "uint256"
+			}
+		],
+		"name": "getEntradas",
+		"outputs": [
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "dni",
+				"type": "uint256"
+			}
+		],
+		"name": "cargarFondos",
+		"outputs": [],
+		"payable": true,
+		"stateMutability": "payable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"name": "_evento",
+				"type": "string"
+			},
+			{
+				"name": "_entradas",
+				"type": "uint256"
+			},
+			{
+				"name": "_precioBase",
+				"type": "uint256"
+			}
+		],
+		"payable": true,
+		"stateMutability": "payable",
+		"type": "constructor"
+	}
+]);
+	 
+	//
+	let Contrato = Venta.at('0xe32d086a99c57daf19faeb8c593621a9d11d0ae4'); 
+	//direcciones de instancias del contrato en rinkeby, se pueden acceder reemplazando en Venta.at()
+	const dir = '0xe32d086a99c57daf19faeb8c593621a9d11d0ae4';
+	const dir2 ='0x0887df445ae9c2f4230d25fb578e51ee48a38984';
+
+
+	console.log(Contrato);
+
+    	
+   </script>
+
+   <script src="callback.js"></script>
+   <script>
+	
+ $("#button").click(function() {
+	 evento();
+ });
+
+ $("#abuttons").click(function() {
+	 entradastotal();
+ });
+ $("#button2").click(function() {
+	 precioBase();
+ });
+ $("#button3").click(function() {
+	 entradasDispo(0);
+ });
+ $("#button4").click(function() {
+	 owner();
+ });
+ $("#button5").click(function() {
+	 balance($("#dniBalance").val());
+ });
+ $("#button6").click(function() {
+	 entradasDispo($("#dniEntradas").val());
+ });
+ $("#button7").click(function() {
+	 if($("#montoCompra").val()=="")
+	 comprarSinMonto($("#dniCompra").val());
+	 else comprarConMonto($("#dniCompra").val(),$("#montoCompra").val());
+ });
+ $("#button8").click(function() {	
+	cargarCuenta($("#dniCarga").val(),$("#montoCarga").val());
+ });
+ $("#button9").click(function() {	
+	retirar($("#dniRetiro").val(),$("#montoRetiro").val());
+ });
+ $("#button10").click(function() {	
+	vender($("#dniVenta").val(),$("#precioReventa").val());
+ });
+ $("#button11").click(function() {	
+	precioReventa($("#direccionVendedor").val());
+ });
+
+ $("#button12").click(function() {
+	 if($("#montoRecompra").val()=="")
+	 comprarReventaSinMonto($("#direcVende").val(),$("#dniRecompra").val());
+	 else comprarReventaConMonto($("#direcVende").val(),$("#dniRecompra").val(),$("#montoRecompra").val());
+ });
+ $("#button13").click(function() {	
+	cancelar($("#direccionCancelar").val());
+ });
+ 
+
+   </script>
+   
+  
+</body>
+</html>
